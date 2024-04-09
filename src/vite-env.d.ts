@@ -11,6 +11,7 @@ export type Component = {
   content: Content;
   uri: string;
   nextUri: string;
+  subUri?: string;
   showBackButton: boolean;
   completion: number;
 };

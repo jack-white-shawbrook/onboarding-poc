@@ -1,19 +1,24 @@
 import { useEffect } from "react";
-import { Content } from "../../../vite-env";
+import { Component } from "../../../vite-env";
 
 type ExampleTwoProps = {
-  content: Content;
-  selectionCallback: (validation: boolean, selection: unknown) => void;
+  component: Component;
+  selectionCallback: (validation: boolean, selection: string) => void;
 };
 
-export const ExampleTwo = ({ content, selectionCallback }: ExampleTwoProps) => {
+export const ExampleTwo = ({
+  component,
+  selectionCallback,
+}: ExampleTwoProps) => {
   useEffect(() => {
-    selectionCallback(true, "selectionType");
+    selectionCallback(true, component.subUri ? component.subUri : "");
   }, []);
+
+  console.log("component: ", component);
 
   return (
     <div className="example-container">
-      <h1 className="example-heading">{content.headingText}</h1>
+      <h1 className="example-heading">{component.content.headingText}</h1>
     </div>
   );
 };

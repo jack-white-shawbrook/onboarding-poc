@@ -14,17 +14,19 @@ import { Component } from "../../vite-env";
 import "./styles.css";
 
 const RegistrationWrapper = () => {
-  const { stepId } = useParams();
+  const { stepId, accountType } = useParams();
   const location = useLocation();
   const navigate = useNavigate();
 
   const [currentComponent, setCurrentComponent] = useState<Component>(
-    components[0]
+    components["start"][0]
   );
   const [isDisabled, setIsDisabled] = useState<boolean>(true);
+  const [selectedAccountType, setSelectedAccountType] = useState<string>("");
 
-  const selectionHandler = (validation: boolean, selection: unknown) => {
+  const selectionHandler = (validation: boolean, selection: string) => {
     console.log("Selected", selection);
+    setSelectedAccountType(selection);
     setIsDisabled(!validation);
   };
 
@@ -34,7 +36,8 @@ const RegistrationWrapper = () => {
   };
 
   const buttonHandler = (nextUri: string) => {
-    const url = `/apply/${nextUri}`;
+    const subUri = selectedAccountType;
+    const url = `/apply/${nextUri}/${subUri}`;
     console.log("URL: ", url);
     setIsDisabled(true);
 
@@ -43,9 +46,16 @@ const RegistrationWrapper = () => {
 
   useEffect(() => {
     if (stepId) {
-      setCurrentComponent(getCurrentComponent(components, stepId));
+      const matchedComponent = getCurrentComponent(
+        components,
+        stepId,
+        accountType
+      );
+
+      console.log("MatchedComponent: ", matchedComponent);
+      setCurrentComponent(matchedComponent);
     }
-  }, [location.pathname, stepId]);
+  }, [location.pathname, stepId, accountType]);
 
   return (
     <div className="registration-wrapper">

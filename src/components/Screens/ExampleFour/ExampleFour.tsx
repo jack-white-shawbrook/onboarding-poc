@@ -1,17 +1,17 @@
 import { useEffect } from "react";
 import { Component } from "../../../vite-env";
 
-type ExampleThreeProps = {
+type ExampleFourProps = {
   component: Component;
   selectionCallback: (validation: boolean, selection: string) => void;
 };
 
-export const ExampleThree = ({
+export const ExampleFour = ({
   component,
   selectionCallback,
-}: ExampleThreeProps) => {
+}: ExampleFourProps) => {
   useEffect(() => {
-    selectionCallback(true, component.subUri ? component.subUri : "");
+    selectionCallback(true, "selectionType");
   }, []);
 
   return (

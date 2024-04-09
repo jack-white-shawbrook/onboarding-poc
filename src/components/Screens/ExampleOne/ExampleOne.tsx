@@ -1,12 +1,15 @@
 import { useEffect, useState } from "react";
-import { Content } from "../../../vite-env";
+import { Component } from "../../../vite-env";
 
 type ExampleOneProps = {
-  content: Content;
-  selectionCallback: (validation: boolean, selection: unknown) => void;
+  component: Component;
+  selectionCallback: (validation: boolean, selection: string) => void;
 };
 
-export const ExampleOne = ({ content, selectionCallback }: ExampleOneProps) => {
+export const ExampleOne = ({
+  component,
+  selectionCallback,
+}: ExampleOneProps) => {
   const [selectionType, setSelectionType] = useState<"sole" | "joint" | null>(
     null
   );
@@ -25,9 +28,9 @@ export const ExampleOne = ({ content, selectionCallback }: ExampleOneProps) => {
 
   return (
     <div className="example-container">
-      <h1 className="example-heading">{content.headingText}</h1>
+      <h1 className="example-heading">{component.content.headingText}</h1>
       <div className="all-cards">
-        {content.fields?.map((field, index) => (
+        {component.content.fields?.map((field, index) => (
           <div
             className={`card-container ${
               selectedIndex === index && "selected"

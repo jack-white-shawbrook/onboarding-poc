@@ -12,7 +12,10 @@ import RegistrationLayout from "./pages/Registration/Layout/RegistrationLayout";
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/apply" element={<RegistrationLayout />}>
-      <Route path=":stepId" element={<RegistrationWrapper />} />
+      {/* <Route path=":stepId" element={<RegistrationWrapper />} /> */}
+      <Route path=":stepId" element={<RegistrationWrapper />}>
+        <Route path=":accountType" element={<RegistrationWrapper />} />
+      </Route>
     </Route>
   )
 );
