@@ -1,0 +1,128 @@
+header {
+  background-color: lightcoral;
+  height: 10dvh;
+  display: flex;
+  align-items: center;
+  padding: 0 1rem;
+}
+
+section {
+  display: flex;
+  align-items: center;
+  padding: 0 1rem;
+}
+
+.progress-bar-container {
+  position: relative;
+  background-color: lightgreen;
+  height: 5dvh;
+  gap: 2rem;
+}
+
+.back-button {
+  padding: 0.25rem 0.5rem;
+  width: 3.5rem;
+  border: none;
+  border-bottom: 1px solid rgb(186, 34, 176);
+  background-color: lightgreen;
+}
+
+.progress-bar {
+  position: absolute;
+  left: 6rem;
+}
+
+.back-button:hover {
+  cursor: pointer;
+  background-color: rgb(186, 34, 176);
+  color: aliceblue;
+}
+
+.components-renderer {
+  background-color: lightslategrey;
+  height: 60dvh;
+}
+
+.next-button-container {
+  background-color: lightblue;
+  height: 10dvh;
+  display: flex;
+  justify-content: center;
+}
+
+.next-button {
+  padding: 1rem 2rem;
+  border-radius: 2rem;
+  border: none;
+  background-color: rgb(186, 34, 176);
+  font-size: 1rem;
+  color: aliceblue;
+}
+
+.next-button:hover {
+  border: 2px solid rgb(186, 34, 176);
+  color: rgb(186, 34, 176);
+  background-color: aliceblue;
+  cursor: pointer;
+}
+
+.next-button:disabled {
+  background-color: lightgrey;
+  color: gray;
+}
+
+.next-button:hover:disabled {
+  background-color: lightgrey;
+  cursor: default;
+  border: none;
+}
+
+.info-panel {
+  background-color: lightcoral;
+  height: 15dvh;
+}
+
+/* EXAMPLE COMPONENT */
+
+.example-container {
+  background-color: aliceblue;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.example-heading {
+  margin: 2rem 0;
+}
+
+.all-cards {
+  display: flex;
+  height: 100%;
+  gap: 2rem;
+}
+
+.card-container {
+  padding: 1rem;
+  height: 50%;
+  width: 15rem;
+  border-radius: 10px;
+  border: 2px solid rgb(186, 34, 176);
+  color: rgb(186, 34, 176);
+}
+
+.card-container:hover {
+  background-color: rgb(186, 34, 176);
+  color: aliceblue;
+  cursor: pointer;
+}
+
+.selected {
+  background-color: rgb(186, 34, 176);
+  color: aliceblue;
+}
+
+.card-heading {
+  margin-bottom: 2rem;
+}
